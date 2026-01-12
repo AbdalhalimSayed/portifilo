@@ -17,13 +17,13 @@ Built with the latest **Laravel 12** and **Livewire 3**, the system adopts a **H
 
 ## 📸 Screenshots
 
-|            Admin Dashboard            |             Project Editor             |
-| :-----------------------------------: | :------------------------------------: |
-| ![Dashboard](docs/adminDashboard.png) |    ![Editor](docs/projectEdit.png)     |
-|         **Profile Settings**          |            **Testimonials**            |
-|    ![Profile](docs/profilEdit.png)    | ![Testimonials](docs/Testimonials.png) |
+|           Admin Dashboard            |            Project Editor             |
+| :----------------------------------: | :-----------------------------------: |
+| ![Dashboard](doc/adminDashboard.png) |    ![Editor](doc/projectEdit.png)     |
+|         **Profile Settings**         |           **Testimonials**            |
+|    ![Profile](doc/profilEdit.png)    | ![Testimonials](doc/Testimonials.png) |
 
-> _Note: Please ensure the images are placed in a `docs/` folder in your root directory._
+> _Note: Please ensure the images are placed in a `doc/` folder in your root directory._
 
 ## ✨ Key Features
 
