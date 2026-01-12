@@ -1,0 +1,339 @@
+/* --- 1. Variables --- */
+:root {
+    --bg: #0f1724;
+    --card: #131c2e;
+    --accent: #7c3aed;
+    --text-main: #f1f5f9;
+    --text-body: #cbd5e1;
+    --text-muted-custom: #94a3b8;
+    --glass: rgba(255, 255, 255, 0.05);
+    --glass-border: rgba(255, 255, 255, 0.1);
+    --nav-bg: rgba(15, 23, 36, 0.95);
+    --input-bg: #1e293b;
+}
+
+.light-mode {
+    --bg: #f8fafc;
+    --card: #ffffff;
+    --accent: #7c3aed;
+    --text-main: #0f172a;
+    --text-body: #334155;
+    --text-muted-custom: #64748b;
+    --glass: rgba(9, 30, 66, 0.04);
+    --glass-border: rgba(0, 0, 0, 0.1);
+    --nav-bg: rgba(248, 250, 252, 0.95);
+    --input-bg: #f1f5f9;
+}
+
+* {
+    font-family: 'Inter', sans-serif;
+}
+
+/* --- Critical Fixes for Mobile Layout --- */
+html, body {
+    width: 100%;
+    overflow-x: hidden; /* يمنع التمرير العرضي تماماً */
+    margin: 0;
+    font-family: "El Messiri", sans-serif;
+    padding: 0;
+}
+
+body {
+    background: var(--bg);
+    color: var(--text-body);
+    transition: background 0.3s ease, color 0.3s ease;
+}
+
+h1, h2, h3, h4, h5, h6, .fw-bold {
+    color: var(--text-main) !important;
+}
+
+p, li, span {
+    color: var(--text-body);
+}
+
+/* Navbar */
+.navbar {
+    transition: all 0.3s ease;
+}
+
+.navbar.scrolled {
+    background: var(--nav-bg);
+    backdrop-filter: blur(12px);
+    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+    padding-top: 5px;
+    padding-bottom: 5px;
+}
+
+.nav-link {
+    color: var(--text-body) !important;
+    font-weight: 500;
+}
+
+.nav-link:hover, .nav-link.active {
+    color: var(--accent) !important;
+}
+
+/* Mobile Menu Fix */
+.navbar-collapse {
+    background: var(--card);
+    padding: 1rem;
+    border-radius: 15px;
+    margin-top: 10px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+}
+
+@media (min-width: 992px) {
+    .navbar-collapse {
+        background: transparent;
+        padding: 0;
+        box-shadow: none;
+        margin-top: 0;
+    }
+}
+
+/* Blobs */
+.blob {
+    position: absolute;
+    filter: blur(80px);
+    opacity: 0.4;
+    z-index: 0;
+    pointer-events: none;
+}
+
+.blob.one {
+    width: 500px;
+    height: 500px;
+    background: radial-gradient(circle, rgba(124, 58, 237, 0.4) 0%, transparent 70%);
+    top: -10%;
+    right: -10%;
+}
+
+.blob.two {
+    width: 400px;
+    height: 400px;
+    background: radial-gradient(circle, rgba(14, 165, 233, 0.25) 0%, transparent 70%);
+    bottom: -10%;
+    left: -10%;
+}
+
+/* Hero & Cards */
+.hero-card, .project-card, .modal-content {
+    background: var(--card);
+    border: 1px solid var(--glass-border);
+    border-radius: 20px;
+}
+
+.hero-card {
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+}
+
+/* Responsive Heading */
+.responsive-heading {
+    font-size: calc(2rem + 1.5vw); /* متجاوب تماماً */
+    line-height: 1.2;
+}
+
+.project-card {
+    overflow: hidden;
+    height: 100%;
+    transition: transform .3s ease;
+}
+
+.project-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.2);
+}
+
+.project-badge {
+    position: absolute;
+    right: 12px;
+    top: 12px;
+    background: rgba(0, 0, 0, 0.8);
+    backdrop-filter: blur(4px);
+    color: white;
+    padding: 4px 12px;
+    border-radius: 20px;
+    font-size: 0.75rem;
+    font-weight: 600;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+/* Buttons */
+.btn-cta {
+    background: linear-gradient(135deg, var(--accent), #06b6d4);
+    border: none;
+    color: white !important;
+    padding: 10px 28px;
+    font-weight: 600;
+    border-radius: 50px;
+    box-shadow: 0 4px 15px rgba(124, 58, 237, 0.3);
+    transition: transform 0.2s;
+}
+
+.btn-cta:hover {
+    transform: translateY(-2px);
+}
+
+.btn-outline-light {
+    border-color: var(--glass-border);
+    color: var(--text-main);
+    border-radius: 50px;
+}
+
+.btn-outline-light:hover {
+    background: var(--glass);
+    color: var(--accent);
+    border-color: var(--accent);
+}
+
+/* Forms */
+.form-control {
+    background: var(--input-bg);
+    border: 1px solid var(--glass-border);
+    color: var(--text-main) !important;
+    padding: 12px;
+    border-radius: 10px;
+}
+
+.form-control:focus {
+    background: var(--input-bg);
+    color: var(--text-main) !important;
+    box-shadow: none;
+    border-color: var(--accent);
+}
+
+.form-control::placeholder {
+    color: var(--text-muted-custom);
+    opacity: 0.6;
+}
+
+/* Floating Buttons */
+.floating-actions {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    z-index: 9999;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.float-btn {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white !important;
+    font-size: 22px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+    transition: transform 0.3s;
+    text-decoration: none;
+}
+
+.float-btn:hover {
+    transform: scale(1.1);
+}
+
+.btn-whatsapp {
+    background-color: #25D366;
+}
+
+.btn-phone {
+    background-color: #0ea5e9;
+}
+
+/* Modal Styling */
+.modal-content {
+    color: var(--text-body);
+}
+
+.modal-header {
+    border-bottom: 1px solid var(--glass-border);
+}
+
+.modal-footer {
+    border-top: 1px solid var(--glass-border);
+}
+
+.btn-close {
+    filter: invert(1) grayscale(100%) brightness(200%);
+}
+
+.light-mode .btn-close {
+    filter: none;
+}
+
+/* Swiper */
+.swiper-container {
+    padding-bottom: 40px;
+    width: 100%;
+    overflow: hidden;
+}
+
+.swiper-slide {
+    width: 100%;
+}
+
+.swiper-pagination-bullet {
+    background: var(--text-main);
+    opacity: 0.3;
+}
+
+.swiper-pagination-bullet-active {
+    background: var(--accent);
+    opacity: 1;
+}
+
+/* --- STRICT MOBILE RESPONSIVENESS --- */
+@media (max-width: 768px) {
+    .hero {
+        padding-top: 7rem;
+    }
+
+    /* Hero Card adjustments */
+    .hero-card {
+        padding: 1.5rem !important;
+        text-align: center;
+        margin-bottom: 2rem;
+    }
+
+    /* Hero Image Fix - Remove rotation and limit width */
+    .hero img {
+        margin-top: 2rem;
+        width: 70%;
+        max-width: 250px;
+        transform: none !important; /* Important: Remove rotation on mobile */
+        margin-left: auto;
+        margin-right: auto;
+        display: block;
+    }
+
+    /* Reduce Blobs size */
+    .blob {
+        opacity: 0.2;
+    }
+
+    .blob.one {
+        width: 200px;
+        height: 200px;
+    }
+
+    .blob.two {
+        width: 150px;
+        height: 150px;
+    }
+
+    /* Buttons Full Width on Mobile */
+    .btn-cta, .btn-outline-light {
+        width: 100%;
+        display: block;
+        margin-bottom: 10px;
+    }
+
+    .d-flex.gap-3 {
+        gap: 10px !important;
+    }
+}
